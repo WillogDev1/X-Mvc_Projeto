@@ -7,6 +7,11 @@ class Routes
     public static function routes()
     {
         return [
+            "/page-not-found" => [
+                "GET" => [
+                    "Controller" => "PageNotFound@get",
+                ],
+            ],
             "/" => [
                 "GET" => [
                     "Controller" => "Login@get",

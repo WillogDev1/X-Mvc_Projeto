@@ -12,27 +12,49 @@ class Router
         $URI    =   Http::RETURN_URI();
         $QUERY  =   Http::RETURN_QUERY();
         
-        // echo "METHOD: " . $METHOD . " URI: " . $URI . " QUERY: " . var_dump($QUERY);
-        // Verificar se rota existe
-        $REULT = self::VERIFY_IF_ROUTE_EXIST($URI, $METHOD, $QUERY);
-        return $REULT;
+        $RESULT = self::VERIFY_IF_ROUTE_EXIST($URI, $METHOD, $QUERY);
+
+        // Se (Uri/Url) requisitada pelo usuario não for enctrada redireciona para pagina de erro
+        if ($RESULT === NULL) {
+            self::ERROR_PAGE();
+            return;
+        }
+
+        // Quebrar em 3 partes, Controller, Action, Query
+        
+        return $RESULT;
     }
 
     public static function VERIFY_IF_ROUTE_EXIST($URI, $METHOD, $QUERY)
     {
         $ROUTES = Routes::routes();
+        $URI_EXIST_IN_ROUTE = self::VERIFY_IF_URI_EXIST_IN_ROUTE($URI, $ROUTES);
+        $METHOD_EXIST_IN_ROUTE = self::VERIFY_IF_METHOD_EXIST_IN_ROUTE($METHOD, $ROUTES, $URI);
 
-        if (array_key_exists($URI, $ROUTES))
+        if ($URI_EXIST_IN_ROUTE === TRUE || $METHOD_EXIST_IN_ROUTE === TRUE)
         {
-            if(array_key_exists($METHOD, $ROUTES[$URI]))
-            {
-                return $ROUTES[$URI][$METHOD];
-            }else{
-                return NULL; // Metodo não permitido para o caminho
-            }
+            return $ROUTES[$URI][$METHOD];
         }else{
-            return NULL; // Rota não Existe
+            return NULL;
         }
+
+
+    }
+
+    
+    public static function VERIFY_IF_URI_EXIST_IN_ROUTE($URI, $ROUTES)
+    {
+        return array_key_exists($URI, $ROUTES);
+    }
+
+    public static function VERIFY_IF_METHOD_EXIST_IN_ROUTE($METHOD, $ROUTES, $URI)
+    {
+        return isset($ROUTES[$URI]) && array_key_exists($METHOD, $ROUTES[$URI]);
+    }
+    public static function ERROR_PAGE()
+    {
+        header("Location: /page-not-found");
+        exit();
     }
 }
 
