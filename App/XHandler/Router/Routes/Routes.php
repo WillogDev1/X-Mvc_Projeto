@@ -1,8 +1,8 @@
 <?php
 
-namespace  App\XHandeler\Router\Routes;
+namespace  App\XHandler\Router\Routes;
 
-class Router
+class Routes
 {
     public static function routes()
     {
@@ -12,6 +12,7 @@ class Router
                     "Controller" => "Login@get",
                 ],
             ],
+
             "/login" => [
                 "GET" => [
                     "Controller" => "Login@get"
@@ -19,6 +20,12 @@ class Router
                 "POST" => [
                     "Controller" => "Login@post"
                 ]
+            ],
+
+            "/home" => [
+                "GET" => [
+                    "Controller" => "Home@get",
+                ],
             ],
         ];
     }
