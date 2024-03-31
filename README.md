@@ -31,9 +31,18 @@ Criando um Framework baseado em MVC para agilidade em projetos de pequeno porte 
 
 # :hammer: Funcionalidades do projeto
 
-- `Funcionalidade 1`: Gerenciamento de Rotas
-- `Funcionalidade 2`: Controle de Acesso
-- `Funcionalidade 3`: Automação na criação das Rotas/Modulos
+- `Funcionalidade 1`: Gerenciamento de Rotas.
+    - Setar/Criar rotas
+    - Verificar se Rotas existem
+- `Funcionalidade 2`: Renderizar Controller, Model e View Dinamicamente.
+    - Baseado na rota carregar o Controller, Model e View.
+    - Renderizar Model dinamicamente (Dados são carregados ao chamar o render)
+- `Funcionalidade 3`: Controle de Acesso.
+    - Verificar se usuario está logado ou não.
+    - Definir quais paginas precisam de login ou não.
+- `Funcionalidade 4`: Automação na criação das Rotas/Modulos.
+    - Criação de Modulos
+    - Automação, cria Controller, Model, View e Atualiza Routes criando tudo para iniciar uma pagina
 
 # 📁 Acesso ao projeto
 
