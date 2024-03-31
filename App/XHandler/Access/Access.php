@@ -7,7 +7,7 @@ class Access
     {
         self::START_SESSION();
 
-        self::VERIFY_USER_IS_LOGIN();
+        return self::VERIFY_USER_IS_LOGIN();
 
     }
 

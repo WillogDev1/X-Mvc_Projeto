@@ -30,10 +30,8 @@ class Router
 
         $CONTROLLER_ACTION = $RESULT_ROUTE_CONTROLLER_ACTION['Controller']['Action'];
 
-        // Verificar se Usuario está logado ou não.
-        Access::START_SESSION();
         // Retire para ver a permissao funcionando
-        //$_SESSION['SESSION_ID'] = 10;
+        $_SESSION['SESSION_ID'] = 10;
         if(Access::VERIFY_USER_IS_LOGIN())
         {
             Render::RENDER($CONTROLLER_NAME, $CONTROLLER_NAME, $CONTROLLER_NAME, $CONTROLLER_ACTION, $METHOD);
