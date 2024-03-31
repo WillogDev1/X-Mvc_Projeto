@@ -12,6 +12,13 @@ class Routes
                     "Controller" => "PageNotFound@get",
                 ],
             ],
+
+            "/user-not-logging" => [
+                "GET" => [
+                    "Controller" => "UserNotLogging@get",
+                ],
+            ],
+
             "/" => [
                 "GET" => [
                     "Controller" => "Login@get",
