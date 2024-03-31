@@ -30,14 +30,7 @@ class Router
 
         $CONTROLLER_ACTION = $RESULT_ROUTE_CONTROLLER_ACTION['Controller']['Action'];
 
-        // Retire para ver a permissao funcionando
-        $_SESSION['SESSION_ID'] = 10;
-        if(Access::VERIFY_USER_IS_LOGIN())
-        {
-            Render::RENDER($CONTROLLER_NAME, $CONTROLLER_NAME, $CONTROLLER_NAME, $CONTROLLER_ACTION, $METHOD);
-        }else{
-            Access::ERROR_PAGE();
-        }
+       return self::VERIFY_IF_ROUTE_NEEDS_LOGGIN($URI, $CONTROLLER_NAME, $CONTROLLER_ACTION, $METHOD);
         
 
     }
@@ -66,7 +59,7 @@ class Router
         return isset($ROUTES[$URI]) && array_key_exists($METHOD, $ROUTES[$URI]);
     }
 
-    public static function RETURN_CONTROLLER_AND_ACTION($RESULT_COMPLETE_ROUTE) //Nome melhor encontrar // Talvez eu precise pegar isso aqui também ***Query***
+    public static function RETURN_CONTROLLER_AND_ACTION($RESULT_COMPLETE_ROUTE) // Talvez eu precise pegar isso aqui também ***Query***
     {
         $ROUTE_IN_PARTS = [];
 
@@ -81,6 +74,24 @@ class Router
             return $ROUTE_IN_PARTS;
         }
     }
+
+    public static function VERIFY_IF_ROUTE_NEEDS_LOGGIN($URI, $CONTROLLER_NAME, $CONTROLLER_ACTION, $METHOD)
+    {
+        if($URI === "/" || $URI === "/login")
+        {
+            Render::RENDER($CONTROLLER_NAME, $CONTROLLER_NAME, $CONTROLLER_NAME, $CONTROLLER_ACTION, $METHOD);
+        } else {
+            if(Access::ACCESS())
+            {
+                //$_SESSION['SESSION_ID'] = 10;
+                Render::RENDER($CONTROLLER_NAME, $CONTROLLER_NAME, $CONTROLLER_NAME, $CONTROLLER_ACTION, $METHOD);
+            }else{
+                header("Location: /login");
+                exit();
+            }
+        }
+    }
+
 
     public static function ERROR_PAGE()
     {
