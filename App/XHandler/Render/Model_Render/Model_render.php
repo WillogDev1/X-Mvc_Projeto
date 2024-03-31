@@ -15,12 +15,17 @@ class Model_Render
 
         $LOAD_MODEL_ACTION = new $TRY_LOAD_MODEL_AND_ACTION;
 
-        if(!method_exists($LOAD_MODEL_ACTION, $ACTION))
+        if(method_exists($LOAD_MODEL_ACTION, $ACTION))
         {
+            $DATA = $LOAD_MODEL_ACTION->$ACTION();
+
+            return $DATA;
+        }else{
             throw new \Exception("Método $ACTION não encontrado na classe $MODEL");
         }
 
-        $LOAD_MODEL_ACTION->$ACTION();
+
+
     }
 }
 

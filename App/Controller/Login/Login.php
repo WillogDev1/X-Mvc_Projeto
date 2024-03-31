@@ -5,7 +5,7 @@ class Login
 {
     public static function get()
     {
-        echo "Controller LOAD";
+
     }
 }
 

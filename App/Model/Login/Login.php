@@ -5,7 +5,8 @@ class Login
 {
     public static function get()
     {
-        echo "Model Returned";
+        $DATA = "Login - Works!";
+        return $DATA;
     }
 }
 
