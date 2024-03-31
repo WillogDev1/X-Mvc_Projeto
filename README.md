@@ -20,7 +20,7 @@
 
 # Sobre o projeto
 
-Criando um Framework baseado em MVC para agilidade em projetos de pequeno porte e quem sabe médio porte
+Criando um Framework baseado em MVC para agilidade em projetos de pequeno porte e quem sabe médio porte, pensando em sites de hospedagem como Hostinger, Hostgator que aceitam Php
 
 
 # Status do Projeto
@@ -31,26 +31,40 @@ Criando um Framework baseado em MVC para agilidade em projetos de pequeno porte 
 
 # :hammer: Funcionalidades do projeto
 
-- `Funcionalidade 1`: Gerenciamento de Rotas.
+- `Funcionalidade 1`: 
+    - Gerenciamento de Rotas.
     - Setar/Criar rotas
     - Verificar se Rotas existem
-- `Funcionalidade 2`: Renderizar Controller, Model e View Dinamicamente.
+- `Funcionalidade 2`: 
+    - Renderizar Controller, Model e View Dinamicamente.
     - Baseado na rota carregar o Controller, Model e View.
     - Renderizar Model dinamicamente (Dados são carregados ao chamar o render)
 - `Funcionalidade 3`: Controle de Acesso.
     - Verificar se usuario está logado ou não.
     - Definir quais paginas precisam de login ou não.
-- `Funcionalidade 4`: Automação na criação das Rotas/Modulos.
+- `Funcionalidade 4`: 
+    - Automação na criação das Rotas/Modulos.
     - Criação de Modulos
     - Automação, cria Controller, Model, View e Atualiza Routes criando tudo para iniciar uma pagina
-
-# 📁 Acesso ao projeto
-
-**Fork Disponivel a qualquer momento**
+- `Funcionalidade 5`:
+    - Modulo de Testes Unitarios com PHP Unit
+    - Criação Inicial do Teste Unitario automatica
 
 # 🛠️ Abrir e rodar o projeto
 
-**Instale PHP, Composer e Dotenv**
+**Instale PHP, Composer, PHPUnit e Dotenv**
+    - Crie a pasta do seu projeto
+    - Instale Apache( Ou Instale XAMPP e rode o Apache de lá, ou melhor, crie um Docker)
+    - Instale Composer
+    - Instal Php
+    - Crie ou Copiei o arquivo composer.json
+    - Rode: composer install
+    - Rode: composer dump-autoload
+    - Rode: composer require --dev phpunit/phpunit ^11
+    - Rode: composer dump-autoload
+    - Reinicie a Aplicação/Apache/Server
+    Obs:
+        A Pasta App deve ser esse nome, caso queria trocar mude em composer.json psr-4.
 
 # Tecnologias utilizadas
 
