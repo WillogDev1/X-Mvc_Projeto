@@ -1,6 +1,7 @@
 <?php 
 namespace App\XHandler\Render\Render;
 
+use App\XHandler\Access\Access;
 use App\XHandler\Render\Controller_Render\Controller_Render;
 use App\XHandler\Render\Model_Render\Model_Render;
 use App\XHandler\Render\View_Render\View_Render;
@@ -13,6 +14,7 @@ class Render
             $METHOD;
             if($METHOD != "GET")
             {
+                Access::START_SESSION();
                 self::RENDER_IF_METHOD_IS_NOT_GET($CONTROLLER, $ACTION, $MODEL);
 
             } else {
