@@ -5,7 +5,7 @@ namespace App\XHandler\Router\Router;
 use App\XHandler\Http\Http;
 use App\XHandler\Router\Routes\Routes;
 use App\XHandler\Render\Controller_Render\Controller_Render;
-
+use App\XHandler\Render\Model_Render\Model_Render;
 class Router
 {
     public static function ROUTER()
@@ -27,9 +27,16 @@ class Router
         $CONTROLLER_NAME = $RESULT_ROUTE_CONTROLLER_ACTION['Controller']['Component'];
 
         $CONTROLLER_ACTION = $RESULT_ROUTE_CONTROLLER_ACTION['Controller']['Action'];
-
+        /*
         try {
             $LOAD_CONTROLLER = Controller_Render::CONTROLLER_RENDER($CONTROLLER_NAME, $CONTROLLER_ACTION);
+            return $LOAD_CONTROLLER;
+        } catch (\Exception $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+        */
+        try {
+            $LOAD_CONTROLLER = Model_Render::MODEL_RENDER($CONTROLLER_NAME, $CONTROLLER_ACTION);
             return $LOAD_CONTROLLER;
         } catch (\Exception $e) {
             echo "Erro: " . $e->getMessage();
