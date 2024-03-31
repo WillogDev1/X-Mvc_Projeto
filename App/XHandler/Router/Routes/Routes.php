@@ -40,7 +40,6 @@ class Routes
                 ],
             ],
         
-    
             "/perfil" => [
                 "GET" => [
                     "Controller" => "Perfil@get",
