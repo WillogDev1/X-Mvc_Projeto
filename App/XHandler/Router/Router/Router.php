@@ -6,6 +6,7 @@ use App\XHandler\Http\Http;
 use App\XHandler\Router\Routes\Routes;
 use App\XHandler\Render\Controller_Render\Controller_Render;
 use App\XHandler\Render\Model_Render\Model_Render;
+use App\XHandler\Render\View_Render\View_Render;
 class Router
 {
     public static function ROUTER()
@@ -34,13 +35,23 @@ class Router
         } catch (\Exception $e) {
             echo "Erro: " . $e->getMessage();
         }
-        */
+        
         try {
-            $LOAD_CONTROLLER = Model_Render::MODEL_RENDER($CONTROLLER_NAME, $CONTROLLER_ACTION);
-            return $LOAD_CONTROLLER;
+            $LOAD_MODEL = Model_Render::MODEL_RENDER($CONTROLLER_NAME, $CONTROLLER_ACTION);
+            return $LOAD_MODEL;
         } catch (\Exception $e) {
             echo "Erro: " . $e->getMessage();
         }
+        */
+        /*
+        try {
+            $LOAD_VIEW = View_Render::VIEW_RENDER($CONTROLLER_NAME, $CONTROLLER_ACTION);
+            return $LOAD_VIEW;
+        } catch (\Exception $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+        */
+
     }
 
     public static function VERIFY_IF_ROUTE_EXIST($URI, $METHOD, $QUERY)
