@@ -13,17 +13,29 @@ class Render
             $METHOD;
             if($METHOD != "GET")
             {
-                Controller_Render::CONTROLLER_RENDER($CONTROLLER, $ACTION);
-                $DATA = Model_Render::MODEL_RENDER($MODEL, $ACTION);
-            } else {
-                Controller_Render::CONTROLLER_RENDER($CONTROLLER, $ACTION);
-                $DATA = Model_Render::MODEL_RENDER($MODEL, $ACTION);
+                self::RENDER_IF_METHOD_IS_NOT_GET($CONTROLLER, $ACTION, $MODEL);
 
-                include_once View_Render::VIEW_RENDER($VIEW);
+            } else {
+                self::RENDER_IF_METHOD_IS_GET($CONTROLLER, $ACTION, $MODEL,$VIEW);
             }
         } catch (\Exception $e){
             echo "Erro: " . $e->getMessage();
         }
+    }
+
+
+    public static function RENDER_IF_METHOD_IS_GET($CONTROLLER, $ACTION, $MODEL,$VIEW)
+    {
+        Controller_Render::CONTROLLER_RENDER($CONTROLLER, $ACTION);
+        $DATA = Model_Render::MODEL_RENDER($MODEL, $ACTION);
+
+        include_once View_Render::VIEW_RENDER($VIEW);
+    }
+
+    public static function RENDER_IF_METHOD_IS_NOT_GET($CONTROLLER, $ACTION, $MODEL)
+    {
+        Controller_Render::CONTROLLER_RENDER($CONTROLLER, $ACTION);
+        $DATA = Model_Render::MODEL_RENDER($MODEL, $ACTION);
     }
 }
 ?>
