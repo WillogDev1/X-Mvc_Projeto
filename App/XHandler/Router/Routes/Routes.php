@@ -39,6 +39,16 @@ class Routes
                     "Controller" => "Home@get",
                 ],
             ],
-        ];
+        
+    
+            "/perfil" => [
+                "GET" => [
+                    "Controller" => "Perfil@get",
+                ],
+                "POST" => [
+                    "Controller" => "Perfil@post",
+                ],
+            ],
+    ];
     }
 }
