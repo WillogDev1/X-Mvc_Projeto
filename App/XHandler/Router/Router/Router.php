@@ -77,6 +77,23 @@ class Router
 
     public static function VERIFY_IF_ROUTE_NEEDS_LOGGIN($URI, $CONTROLLER_NAME, $CONTROLLER_ACTION, $METHOD)
     {
+
+        $ROUTES_NOT_LOGGIN = Routes::ROUTES_THAT_DONT_NEED_LOGGIN();
+
+        if(array_key_exists($URI, $ROUTES_NOT_LOGGIN))
+        {
+            Render::RENDER($CONTROLLER_NAME, $CONTROLLER_NAME, $CONTROLLER_NAME, $CONTROLLER_ACTION, $METHOD);
+        }else{
+            if(Access::ACCESS())
+            {
+                Render::RENDER($CONTROLLER_NAME, $CONTROLLER_NAME, $CONTROLLER_NAME, $CONTROLLER_ACTION, $METHOD);
+            }else{
+                header("Location: /login");
+                exit();
+            }
+        }
+        
+        /*
         if($URI === "/" || $URI === "/login")
         {
             Render::RENDER($CONTROLLER_NAME, $CONTROLLER_NAME, $CONTROLLER_NAME, $CONTROLLER_ACTION, $METHOD);
@@ -90,6 +107,8 @@ class Router
                 exit();
             }
         }
+        */
+        
     }
 
 

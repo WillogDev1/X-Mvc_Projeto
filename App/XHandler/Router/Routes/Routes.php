@@ -4,6 +4,16 @@ namespace  App\XHandler\Router\Routes;
 
 class Routes
 {
+
+    public static function ROUTES_THAT_DONT_NEED_LOGGIN()
+    {
+        return [
+            "/" => "",
+            "/login" => "login"
+        ];
+    }
+
+
     public static function routes()
     {
         return [
