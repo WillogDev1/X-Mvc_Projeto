@@ -20,13 +20,15 @@
 
 # Sobre o projeto
 
-Criando um Framework baseado em MVC para agilidade em projetos de pequeno porte e quem sabe médio porte, pensando em sites de hospedagem como Hostinger, Hostgator que aceitam Php
-
+Criando uma "Framework" baseado em MVC para agilidade em projetos de pequeno porte e quem sabe médio porte, pensando em sites de hospedagem como Hostinger e Hostgator, que aceitam PHP. 
+Inúmeras vezes tentei iniciar meus estudos com os frameworks do momento, e inúmeras vezes falhei em entender não só o complexo, mas o básico. 
+Este projeto tem como objetivo principal o estudo e aprimoramento das minhas habilidades como desenvolvedor. Como objetivo secundário, pretendo criar projetos usando esta MVC, que chamo de X-MVC e dei um apelido para essa "Framework", para assim conseguir atender às necessidades que surgem conforme um projeto vai se desenvolvendo.
+Provavelmente existem padrões para algo ser considerado Framework por isso referencio sempre minha "Framework".
 
 # Status do Projeto
 
 <h4 align="center"> 
-    :construction:  Projeto em construção  :construction:
+    :construction:  Projeto em construção mas já pode ser usado:construction:
 </h4>
 
 # :hammer: Funcionalidades do projeto
