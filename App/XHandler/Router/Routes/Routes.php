@@ -58,6 +58,15 @@ class Routes
                     "Controller" => "Perfil@post",
                 ],
             ],
+    
+            "/admin" => [
+                "GET" => [
+                    "Controller" => "Admin@get",
+                ],
+                "POST" => [
+                    "Controller" => "Admin@post",
+                ],
+            ],
     ];
     }
 }

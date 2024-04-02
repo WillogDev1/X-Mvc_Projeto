@@ -13,6 +13,8 @@ if (empty($nomeArquivo)) {
 // Define o conteúdo para o Controller
 $conteudoController = "<?php\n\nnamespace App\\Controller\\$nomeArquivo;\n\nuse App\\Model\\$nomeArquivo\\$nomeArquivo as ${nomeArquivo}Model;\n\nclass $nomeArquivo\n{\n    public static function get()\n    {\n        // Implementação da função GET\n    }\n\n    public static function post()\n    {\n        // Implementação da função POST\n        ${nomeArquivo}Model::post();\n    }\n}\n\n?>";
 
+$conteudoTests = "<?php \n\nnamespace Testes\\Unit\\$nomeArquivo; \n\nuse App\\Controller\\$nomeArquivo\\$nomeArquivo as ${nomeArquivo}Controller;\n\nuse PHPUnit\Framework\TestCase;\n\nclass test$nomeArquivo extends TestCase\n{\n\n} \n\n?>";
+
 // Define o conteúdo para o Model
 $conteudoModel = "<?php\n\nnamespace App\\Model\\$nomeArquivo;\n\nclass $nomeArquivo\n{\n    public static function get()\n    {\n        // Implementação da função GET\n        \$DATA = str_replace('$nomeArquivo', __CLASS__, '$nomeArquivo - Works');\n        return \$DATA;\n    }\n\n    public static function post()\n    {\n        // Implementação da função POST\n    }\n}\n\n?>";
 
@@ -23,7 +25,8 @@ $conteudoView = "<!DOCTYPE html>\n<html>\n<head>\n    <title>$nomeArquivo</title
 $diretorios = [
     __DIR__ . "/../App/Controller/$nomeArquivo/",
     __DIR__ . "/../App/Model/$nomeArquivo/",
-    __DIR__ . "/../App/View/$nomeArquivo/"
+    __DIR__ . "/../App/View/$nomeArquivo/",
+    __DIR__ . "/../Tests/Unit/$nomeArquivo/"
 ];
 
 // Cria os diretórios se ainda não existirem
@@ -40,12 +43,13 @@ foreach ($diretorios as $diretorio) {
 $conteudos = [
     'Controller' => $conteudoController,
     'Model' => $conteudoModel,
-    'View' => $conteudoView
+    'View' => $conteudoView,
+    'Tests' => $conteudoTests
 ];
 
 // Cria o arquivo em cada diretório com o conteúdo correspondente
 foreach ($diretorios as $key => $diretorio) {
-    $tipo = ['Controller', 'Model', 'View'][$key];
+    $tipo = ['Controller', 'Model', 'View', 'Tests'][$key];
     $arquivo = $diretorio . $nomeArquivo . '.php';
     file_put_contents($arquivo, $conteudos[$tipo]);
     echo "Arquivo '$arquivo' criado com sucesso no diretório '$diretorio'!\n";
