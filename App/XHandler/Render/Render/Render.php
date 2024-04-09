@@ -37,7 +37,7 @@ class Render
     public static function RENDER_IF_METHOD_IS_NOT_GET($CONTROLLER, $ACTION, $MODEL)
     {
         Controller_Render::CONTROLLER_RENDER($CONTROLLER, $ACTION);
-        $DATA = Model_Render::MODEL_RENDER($MODEL, $ACTION);
+        // $DATA = Model_Render::MODEL_RENDER($MODEL, $ACTION);
     }
 }
 ?>
