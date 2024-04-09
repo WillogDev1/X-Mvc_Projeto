@@ -37,7 +37,7 @@ class Router
 
     public static function VERIFY_IF_ROUTE_EXIST($URI, $METHOD, $QUERY)
     {
-        $ROUTES = Routes::routes();
+        $ROUTES = Routes::ROUTES();
         $URI_EXIST_IN_ROUTE = self::VERIFY_IF_URI_EXIST_IN_ROUTE($URI, $ROUTES);
         $METHOD_EXIST_IN_ROUTE = self::VERIFY_IF_METHOD_EXIST_IN_ROUTE($METHOD, $ROUTES, $URI);
 
@@ -59,7 +59,7 @@ class Router
         return isset($ROUTES[$URI]) && array_key_exists($METHOD, $ROUTES[$URI]);
     }
 
-    public static function RETURN_CONTROLLER_AND_ACTION($RESULT_COMPLETE_ROUTE) // Talvez eu precise pegar isso aqui também ***Query***
+    public static function RETURN_CONTROLLER_AND_ACTION($RESULT_COMPLETE_ROUTE) // Talvez eu precise pegar isso aqui também ***Query*** // Retornar um igual mas para as permission setadas em routes
     {
         $ROUTE_IN_PARTS = [];
 
@@ -85,7 +85,7 @@ class Router
             Render::RENDER($CONTROLLER_NAME, $CONTROLLER_NAME, $CONTROLLER_NAME, $CONTROLLER_ACTION, $METHOD);
         }else{
             if(Access::ACCESS())
-            {
+            {// Setar aqui permissão se usuario tiver permissao carrega o RENDER senão volta para pagina inicial
                 Render::RENDER($CONTROLLER_NAME, $CONTROLLER_NAME, $CONTROLLER_NAME, $CONTROLLER_ACTION, $METHOD);
             }else{
                 header("Location: /login");

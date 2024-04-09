@@ -14,7 +14,7 @@ class Routes
     }
 
 
-    public static function routes()
+    public static function ROUTES() // Adicionar um @ a mais se possivel, ou um "Permissao_ID" => "1"
     {
         return [
             "/page-not-found" => [
@@ -58,6 +58,7 @@ class Routes
                     "Controller" => "Perfil@post",
                 ],
             ],
+
     
             "/admin" => [
                 "GET" => [

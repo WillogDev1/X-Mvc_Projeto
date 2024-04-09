@@ -15,6 +15,7 @@ class Admin
     {
         // Implementação da função POST
     }
+
 }
 
 ?>

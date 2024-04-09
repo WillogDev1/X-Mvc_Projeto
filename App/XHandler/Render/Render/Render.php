@@ -8,7 +8,7 @@ use App\XHandler\Render\View_Render\View_Render;
 
 class Render
 {
-    public static function RENDER($MODEL, $CONTROLLER, $VIEW, $ACTION, $METHOD) // Dividir a renderização de paginas GET para outras
+    public static function RENDER($MODEL, $CONTROLLER, $VIEW, $ACTION, $METHOD)
     {
         try{
             $METHOD;

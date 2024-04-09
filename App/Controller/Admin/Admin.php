@@ -16,6 +16,7 @@ class Admin
         // Implementação da função POST
         AdminModel::post();
     }
+
 }
 
 ?>
