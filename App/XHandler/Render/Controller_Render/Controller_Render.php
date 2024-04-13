@@ -2,11 +2,11 @@
 namespace App\XHandler\Render\Controller_Render;
 
 
-class Controller_Render // ALTERADO VALIDAR ANTES DO COMMIT
+class Controller_Render
 {
     public static function CONTROLLER_RENDER($COMPONENT, $ACTION)
     {
-        // Transforma o componente em string se for um array
+
         if (is_array($COMPONENT)) {
             $CONTROLLER_NAMESPACE = implode('\\', $COMPONENT);
             $CONTROLLER_NAME = end($COMPONENT);
@@ -15,14 +15,12 @@ class Controller_Render // ALTERADO VALIDAR ANTES DO COMMIT
             $CONTROLLER_NAME = $COMPONENT;
         }
     
-        // Tenta carregar o controlador
         $TRY_LOAD_CONTROLLER_AND_ACTION = "\\App\\Controller\\$CONTROLLER_NAMESPACE\\$CONTROLLER_NAME";
     
         if (!class_exists($TRY_LOAD_CONTROLLER_AND_ACTION)) {
             throw new \Exception("Controlador $TRY_LOAD_CONTROLLER_AND_ACTION não existe.");
         }
     
-        // Instancia o controlador e executa a ação
         $LOAD_CONTROLLER_ACTION = new $TRY_LOAD_CONTROLLER_AND_ACTION;
     
         if (!method_exists($LOAD_CONTROLLER_ACTION, $ACTION)) {
