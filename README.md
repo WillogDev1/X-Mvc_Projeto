@@ -36,6 +36,7 @@ Provavelmente existem padrões para algo ser considerado Framework por isso refe
 - `Funcionalidade 1`: 
     - Gerenciamento de Rotas.
     - Setar/Criar rotas
+    - Setar/Criar Subrotas
     - Verificar se Rotas existem
 - `Funcionalidade 2`: 
     - Renderizar Controller, Model e View Dinamicamente.
@@ -58,7 +59,7 @@ Provavelmente existem padrões para algo ser considerado Framework por isso refe
     - Crie a pasta do seu projeto
     - Instale Apache( Ou Instale XAMPP e rode o Apache de lá, ou melhor, crie um Docker)
     - Instale Composer
-    - Instal Php
+    - Instale Php
     - Crie ou Copiei o arquivo composer.json
     - Rode: composer install
     - Rode: composer dump-autoload
