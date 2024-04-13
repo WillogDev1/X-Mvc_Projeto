@@ -6,28 +6,35 @@ class Controller_Render
 {
     public static function CONTROLLER_RENDER($COMPONENT, $ACTION)
     {
+        $PATH_TO_CONTROLLER = self::CONTROLLER_PATH($COMPONENT);
 
-        if (is_array($COMPONENT)) {
-            $CONTROLLER_NAMESPACE = implode('\\', $COMPONENT);
-            $CONTROLLER_NAME = end($COMPONENT);
-        } else {
-            $CONTROLLER_NAMESPACE = $COMPONENT;
-            $CONTROLLER_NAME = $COMPONENT;
+    
+        if (!class_exists($PATH_TO_CONTROLLER)) {
+            throw new \Exception("Controlador $PATH_TO_CONTROLLER não existe.");
         }
     
-        $TRY_LOAD_CONTROLLER_AND_ACTION = "\\App\\Controller\\$CONTROLLER_NAMESPACE\\$CONTROLLER_NAME";
-    
-        if (!class_exists($TRY_LOAD_CONTROLLER_AND_ACTION)) {
-            throw new \Exception("Controlador $TRY_LOAD_CONTROLLER_AND_ACTION não existe.");
-        }
-    
-        $LOAD_CONTROLLER_ACTION = new $TRY_LOAD_CONTROLLER_AND_ACTION;
+        $LOAD_CONTROLLER_ACTION = new $PATH_TO_CONTROLLER;
     
         if (!method_exists($LOAD_CONTROLLER_ACTION, $ACTION)) {
             throw new \Exception("Método $ACTION não encontrado na classe Controller: $CONTROLLER_NAME");
         }
     
         $LOAD_CONTROLLER_ACTION->$ACTION();
+    }
+
+
+
+    public static function CONTROLLER_PATH($PATH_CONTROLLER)
+    {
+        if (is_array($PATH_CONTROLLER)) {
+            $CONTROLLER_NAMESPACE = implode('\\', $PATH_CONTROLLER);
+            $CONTROLLER_NAME = end($PATH_CONTROLLER);
+        } else {
+            $CONTROLLER_NAMESPACE = $PATH_CONTROLLER;
+            $CONTROLLER_NAME = $PATH_CONTROLLER;
+        }
+
+        return "\\App\\Controller\\$CONTROLLER_NAMESPACE\\$CONTROLLER_NAME";
     }
 }
 ?>

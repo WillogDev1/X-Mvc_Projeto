@@ -68,6 +68,15 @@ class Routes
                 ],
             ],
 
+            "/perfil/userperfil/trocasenha" => [
+                "GET" => [
+                    "Controller" => "Perfil/UserPerfil/TrocaSenha@geting",
+                ],
+                "POST" => [
+                    "Controller" => "Perfil@post",
+                ],
+            ],
+
     
             "/admin" => [
                 "GET" => [

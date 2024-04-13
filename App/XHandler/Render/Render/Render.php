@@ -16,7 +16,7 @@ class Render
             {
                 Access::START_SESSION();
                 self::RENDER_IF_METHOD_IS_NOT_GET($CONTROLLER, $ACTION, $MODEL);
-
+                
             } else {
                 self::RENDER_IF_METHOD_IS_GET($CONTROLLER, $ACTION, $MODEL,$VIEW);
             }

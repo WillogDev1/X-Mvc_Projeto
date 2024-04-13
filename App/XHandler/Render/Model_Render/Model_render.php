@@ -6,23 +6,15 @@ class Model_Render
 {
     public static function MODEL_RENDER($MODEL, $ACTION)
     {
-        if(is_array($MODEL))
-        {
-            $MODEL_NAMESPACE = implode('\\', $MODEL);
-            $MODEL_NAME = end($MODEL);
-        }else{
-            $MODEL_NAMESPACE = $MODEL;
-            $MODEL_NAME = $MODEL;
-        }
 
-        $TRY_LOAD_MODEL_AND_ACTION = "\\App\\Model\\$MODEL_NAMESPACE\\$MODEL_NAME";
+        $PATH_TO_MODEL = self::MODEL_PATH($MODEL);
 
-        if(!class_exists($TRY_LOAD_MODEL_AND_ACTION))
+        if(!class_exists($PATH_TO_MODEL))
         {
             throw new \Exception("Model $MODEL não existe");
         }
 
-        $LOAD_MODEL_ACTION = new $TRY_LOAD_MODEL_AND_ACTION;
+        $LOAD_MODEL_ACTION = new $PATH_TO_MODEL;
 
         if(method_exists($LOAD_MODEL_ACTION, $ACTION))
         {
@@ -35,6 +27,21 @@ class Model_Render
 
 
 
+    }
+
+
+    public static function MODEL_PATH($PATH_MODEL)
+    {
+        if(is_array($PATH_MODEL))
+        {
+            $MODEL_NAMESPACE = implode('\\', $PATH_MODEL);
+            $MODEL_NAME = end($PATH_MODEL);
+        }else{
+            $MODEL_NAMESPACE = $PATH_MODEL;
+            $MODEL_NAME = $PATH_MODEL;
+        }
+
+        return "\\App\\Model\\$MODEL_NAMESPACE\\$MODEL_NAME";
     }
 }
 

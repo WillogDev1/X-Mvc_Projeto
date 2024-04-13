@@ -5,6 +5,6 @@ class UserPerfil
 {
     public static function geting()
     {
-        echo "OK";
+        echo "OK(MODEL)";
     }
 }

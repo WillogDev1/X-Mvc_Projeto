@@ -1,7 +1,7 @@
 <?php
-namespace App\Controller\Perfil\UserPerfil;
+namespace App\Controller\Perfil\UserPerfil\TrocaSenha;
 
-class UserPerfil
+class TrocaSenha
 {
     public static function geting()
     {
