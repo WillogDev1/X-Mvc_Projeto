@@ -59,20 +59,28 @@ class Router
         return isset($ROUTES[$URI]) && array_key_exists($METHOD, $ROUTES[$URI]);
     }
 
-    public static function RETURN_CONTROLLER_AND_ACTION($RESULT_COMPLETE_ROUTE) // Talvez eu precise pegar isso aqui também ***Query*** // Retornar um igual mas para as permission setadas em routes
-    {
+    public static function RETURN_CONTROLLER_AND_ACTION($RESULT_COMPLETE_ROUTE) {
         $ROUTE_IN_PARTS = [];
-
+    
         foreach ($RESULT_COMPLETE_ROUTE as $KEY => $VALUE) {
-            list($COMPONENT, $ACTION) = explode('@', $VALUE, 2);
-
+            // Primeiro, dividimos pelo último '@' para garantir que a ação
+            // seja extraída corretamente, mesmo que ela contenha '@'
+            $lastAtIndex = strrpos($VALUE, '@');
+            $COMPONENT = substr($VALUE, 0, $lastAtIndex);
+            $ACTION = substr($VALUE, $lastAtIndex + 1);
+    
+            // Se houver uma barra '/', consideramos o componente como uma única unidade
+            if (strpos($COMPONENT, '/') !== false) {
+                $COMPONENT = explode('/', $COMPONENT);
+            }
+    
             $ROUTE_IN_PARTS[$KEY] = [
                 'Component' => $COMPONENT,
                 'Action'    => $ACTION
             ];
-
-            return $ROUTE_IN_PARTS;
         }
+    
+        return $ROUTE_IN_PARTS;
     }
 
     public static function VERIFY_IF_ROUTE_NEEDS_LOGGIN($URI, $CONTROLLER_NAME, $CONTROLLER_ACTION, $METHOD)

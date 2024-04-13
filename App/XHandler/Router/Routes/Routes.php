@@ -59,6 +59,15 @@ class Routes
                 ],
             ],
 
+            "/perfil/userperfil" => [
+                "GET" => [
+                    "Controller" => "Perfil/UserPerfil@geting",
+                ],
+                "POST" => [
+                    "Controller" => "Perfil@post",
+                ],
+            ],
+
     
             "/admin" => [
                 "GET" => [

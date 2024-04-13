@@ -6,7 +6,16 @@ class Model_Render
 {
     public static function MODEL_RENDER($MODEL, $ACTION)
     {
-        $TRY_LOAD_MODEL_AND_ACTION = "\\App\\Model\\$MODEL\\$MODEL";
+        if(is_array($MODEL))
+        {
+            $MODEL_NAMESPACE = implode('\\', $MODEL);
+            $MODEL_NAME = end($MODEL);
+        }else{
+            $MODEL_NAMESPACE = $MODEL;
+            $MODEL_NAME = $MODEL;
+        }
+
+        $TRY_LOAD_MODEL_AND_ACTION = "\\App\\Model\\$MODEL_NAMESPACE\\$MODEL_NAME";
 
         if(!class_exists($TRY_LOAD_MODEL_AND_ACTION))
         {
