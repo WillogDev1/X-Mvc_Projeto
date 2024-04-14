@@ -16,7 +16,7 @@ class Controller_Render
         $LOAD_CONTROLLER_ACTION = new $PATH_TO_CONTROLLER;
     
         if (!method_exists($LOAD_CONTROLLER_ACTION, $ACTION)) {
-            throw new \Exception("Método $ACTION não encontrado na classe Controller: $CONTROLLER_NAME");
+            throw new \Exception("Método $ACTION não encontrado na classe Controller");
         }
     
         $LOAD_CONTROLLER_ACTION->$ACTION();
