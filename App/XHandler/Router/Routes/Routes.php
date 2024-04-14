@@ -86,6 +86,15 @@ class Routes
                     "Controller" => "Admin@post",
                 ],
             ],
+    
+            "/perfil/userperfil/userinfo" => [
+                "GET" => [
+                    "Controller" => "Perfil/UserPerfil/UserInfo@get",
+                ],
+                "POST" => [
+                    "Controller" => "Perfil/UserPerfil/UserInfo@post",
+                ],
+            ],
     ];
     }
 }
