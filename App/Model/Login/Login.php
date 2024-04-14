@@ -1,24 +1,19 @@
-<?php 
+<?php
+
 namespace App\Model\Login;
 
 class Login
 {
     public static function get()
     {
-        $DATA = "Login - Works!";
+        // Implementação da função GET
+        $DATA = str_replace('Login', __CLASS__, 'Login - Works');
         return $DATA;
     }
 
-    public static function post($email, $senha)
+    public static function post()
     {
-        if($email === "william" && $senha === "123")
-        {
-            //session_start();
-            $_SESSION['SESSION_ID'] = '10';
-            header("Location: /home");
-        }else{
-            echo "Não Acessou";
-        }
+        // Implementação da função POST
     }
 }
 

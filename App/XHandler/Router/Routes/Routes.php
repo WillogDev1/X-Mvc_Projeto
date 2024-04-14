@@ -34,65 +34,13 @@ class Routes
                     "Controller" => "Login@get",
                 ],
             ],
-
+            
             "/login" => [
                 "GET" => [
-                    "Controller" => "Login@get"
+                    "Controller" => "Login@get",
                 ],
                 "POST" => [
-                    "Controller" => "Login@post"
-                ]
-            ],
-
-            "/home" => [
-                "GET" => [
-                    "Controller" => "Home@get",
-                ],
-            ],
-        
-            "/perfil" => [
-                "GET" => [
-                    "Controller" => "Perfil@get",
-                ],
-                "POST" => [
-                    "Controller" => "Perfil@post",
-                ],
-            ],
-
-            "/perfil/userperfil" => [
-                "GET" => [
-                    "Controller" => "Perfil/UserPerfil@geting",
-                ],
-                "POST" => [
-                    "Controller" => "Perfil@post",
-                ],
-            ],
-
-            "/perfil/userperfil/trocasenha" => [
-                "GET" => [
-                    "Controller" => "Perfil/UserPerfil/TrocaSenha@geting",
-                ],
-                "POST" => [
-                    "Controller" => "Perfil@post",
-                ],
-            ],
-
-    
-            "/admin" => [
-                "GET" => [
-                    "Controller" => "Admin@get",
-                ],
-                "POST" => [
-                    "Controller" => "Admin@post",
-                ],
-            ],
-    
-            "/perfil/userperfil/userinfo" => [
-                "GET" => [
-                    "Controller" => "Perfil/UserPerfil/UserInfo@get",
-                ],
-                "POST" => [
-                    "Controller" => "Perfil/UserPerfil/UserInfo@post",
+                    "Controller" => "Login@post",
                 ],
             ],
     ];
