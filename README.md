@@ -22,9 +22,28 @@
 
 Criando uma "Framework" baseado em MVC para agilidade em projetos de pequeno porte e quem sabe médio porte, pensando em sites de hospedagem como Hostinger e Hostgator, que aceitam PHP. 
 Inúmeras vezes tentei iniciar meus estudos com os frameworks do momento, e inúmeras vezes falhei em entender não só o complexo, mas o básico. 
-Este projeto tem como objetivo principal o estudo e aprimoramento das minhas habilidades como desenvolvedor. Como objetivo secundário, pretendo criar projetos usando esta MVC, que chamo de X-MVC e dei um apelido para essa "Framework", para assim conseguir atender às necessidades que surgem conforme um projeto vai se desenvolvendo.
-Provavelmente existem padrões para algo ser considerado Framework por isso referencio sempre minha "Framework".
+Este projeto tem como objetivo principal o estudo e aprimoramento das minhas habilidades como desenvolvedor.
+Como objetivo secundario estarei usando essa estrutura para criação de meus projetos para testar e descobrir novas funcionalidades que posso implementar.
 
+A Proposta inicial que tenho em mente é trabalhar em forma de Modulos e Submodulos. Assim ficando mais facil estruturar fisicamente e até mentalmente os arquivos, exemplo:
+
+    - Login
+        - RecuperarSenha
+        - PrimeiroAcesso
+    Administrativo
+        - RH
+            - Setor 1
+            - Setor 2
+        - Almoxarifado
+            - Setor 1
+            - Setor 2
+
+Algo dessa forma, assim podemos trabalhar em um Modulo, e dentro deste Modulo em seus Submodulos, podemos dividir melhor a criação.
+
+Obs:
+A ideia inicial é essa, talvez mude com o tempo. Lembrando isso tudo aqui é uma aventura, talvez haja algum problema muito grande na estrutura que impossibilite alguma função.
+
+Lembrando a ideia é poder rodar tudo em sites como Hostinger. Futuramente( Logo ) Quero criar algo para Amazom, onde podemos ter nossa aplicação mais livre, usar um Socket :)
 # Status do Projeto
 
 <h4 align="center"> 
@@ -42,13 +61,16 @@ Provavelmente existem padrões para algo ser considerado Framework por isso refe
     - Renderizar Controller, Model e View Dinamicamente.
     - Baseado na rota carregar o Controller, Model e View.
     - Renderizar Model dinamicamente (Dados são carregados ao chamar o render)
-- `Funcionalidade 3`: Controle de Acesso.
+- `Funcionalidade 3`: 
+    - Controle de Acesso.
     - Verificar se usuario está logado ou não.
     - Definir quais paginas precisam de login ou não.
 - `Funcionalidade 4`: 
-    - Automação na criação das Rotas/Modulos.
-    - Criação de Modulos
-    - Automação, cria Controller, Model, View e Atualiza Routes criando tudo para iniciar uma pagina
+    - Criador de Modulo que nos proporciona
+    - Arquivos iniciais bem como suas pastas no MVC
+    - Pasta de tests
+    - Rotas
+    - Ready to action
 - `Funcionalidade 5`:
     - Modulo de Testes Unitarios com PHP Unit
     - Criação Inicial do Teste Unitario automatica
