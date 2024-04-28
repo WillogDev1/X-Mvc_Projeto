@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'TheStudentsTeacher-Regular';
+    src: url('/Public/Assets/Fonts/the_students_teacher/TheStudentsTeacher-Regular.ttf');
+}
+
+* {
+    font-family: 'TheStudentsTeacher-Regular'!important;
+}

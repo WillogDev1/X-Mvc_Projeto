@@ -4,7 +4,7 @@ namespace App\Model\Home;
 
 class Home
 {
-    public static function get()
+    public static function pode_Visualizar_Home()
     {
         // Implementação da função GET
         $DATA = str_replace('Home', __CLASS__, 'Home - Works');

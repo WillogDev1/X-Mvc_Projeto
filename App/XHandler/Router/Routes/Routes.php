@@ -40,13 +40,13 @@ class Routes
                     "Controller" => "Login@get",
                 ],
                 "POST" => [
-                    "Controller" => "Login@post",
+                    "Controller" => "Login@loggin",
                 ],
             ],
     
             "/home" => [
                 "GET" => [
-                    "Controller" => "Home@get",
+                    "Controller" => "Home@pode_Visualizar_Home",
                 ],
                 "POST" => [
                     "Controller" => "Home@post",
@@ -55,7 +55,7 @@ class Routes
     
             "/administrativo" => [
                 "GET" => [
-                    "Controller" => "Administrativo@get",
+                    "Controller" => "Administrativo@pode_Visualizar_Administrativo",
                 ],
                 "POST" => [
                     "Controller" => "Administrativo@post",

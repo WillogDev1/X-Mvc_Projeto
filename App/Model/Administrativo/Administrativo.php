@@ -4,7 +4,7 @@ namespace App\Model\Administrativo;
 
 class Administrativo
 {
-    public static function get()
+    public static function pode_Visualizar_Administrativo()
     {
         // Implementação da função GET
         $DATA = str_replace('Administrativo', __CLASS__, 'Administrativo - Works');

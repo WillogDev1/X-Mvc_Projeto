@@ -74,6 +74,9 @@ Lembrando a ideia é poder rodar tudo em sites como Hostinger. Futuramente( Logo
 - `Funcionalidade 5`:
     - Modulo de Testes Unitarios com PHP Unit
     - Criação Inicial do Teste Unitario automatica
+- `Funcionalidade 6`:
+    - Permissão dinamicamente setada pelo Action da rota
+    - necessário apenas setar no banco de dados o se o usuario pode acessar a action ou não
 
 # 🛠️ Abrir e rodar o projeto
 
