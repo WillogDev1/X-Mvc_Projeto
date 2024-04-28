@@ -104,22 +104,6 @@ class Router
             }
         }
         
-        /*
-        if($URI === "/" || $URI === "/login")
-        {
-            Render::RENDER($CONTROLLER_NAME, $CONTROLLER_NAME, $CONTROLLER_NAME, $CONTROLLER_ACTION, $METHOD);
-        } else {
-            if(Access::ACCESS())
-            {
-                //$_SESSION['SESSION_ID'] = 10;
-                Render::RENDER($CONTROLLER_NAME, $CONTROLLER_NAME, $CONTROLLER_NAME, $CONTROLLER_ACTION, $METHOD);
-            }else{
-                header("Location: /login");
-                exit();
-            }
-        }
-        */
-        
     }
 
 

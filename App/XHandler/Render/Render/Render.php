@@ -28,6 +28,9 @@ class Render
 
     public static function RENDER_IF_METHOD_IS_GET($CONTROLLER, $ACTION, $MODEL,$VIEW)
     {
+        // Verificar se, usuario possui permissao com mesmo nome da ACTIOn
+        // Exemplo, ACTION_ROTA = deleteUsers ACTION_USER = deleteUsers 
+        // SE ACTION_USER EXIST IN ACTION_ROTA Lbiera acesso
         Controller_Render::CONTROLLER_RENDER($CONTROLLER, $ACTION);
         $DATA = Model_Render::MODEL_RENDER($MODEL, $ACTION);
 
