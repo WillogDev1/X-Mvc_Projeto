@@ -16,5 +16,3 @@ class Administrativo
         // Implementação da função POST
     }
 }
-
-?>

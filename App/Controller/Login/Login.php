@@ -5,9 +5,20 @@ use App\Model\Login\Login as LoginModel;
 
 class Login
 {
+
+    private string $string = "Testing";
+    private string $teste;
+
+    public function __construct(string $teste)
+    {
+        $this->teste = $teste;
+
+        //echo $this->string;
+    }
+
     public static function get()
     {
-
+        
     }
 
     public static function loggin()
@@ -19,5 +30,3 @@ class Login
         }
     }
 }
-
-?>

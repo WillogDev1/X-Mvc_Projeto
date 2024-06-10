@@ -8,20 +8,24 @@ class Controller_Render
     {
         $PATH_TO_CONTROLLER = self::CONTROLLER_PATH($COMPONENT);
 
-    
         if (!class_exists($PATH_TO_CONTROLLER)) {
             throw new \Exception("Controlador $PATH_TO_CONTROLLER não existe.");
         }
-    
-        $LOAD_CONTROLLER_ACTION = new $PATH_TO_CONTROLLER;
-    
+
+        $REFLACTIONCLASS = new \ReflectionClass($PATH_TO_CONTROLLER);
+
+        $CONSTRUCTOR = $REFLACTIONCLASS->getConstructor();
+
+        $PARAMS = $CONSTRUCTOR->getParameters();
+
+        $LOAD_CONTROLLER_ACTION = $REFLACTIONCLASS->newInstanceArgs($PARAMS);
+
         if (!method_exists($LOAD_CONTROLLER_ACTION, $ACTION)) {
             throw new \Exception("Método $ACTION não encontrado na classe Controller");
         }
-    
+        
         $LOAD_CONTROLLER_ACTION->$ACTION();
     }
-
 
 
     public static function CONTROLLER_PATH($PATH_CONTROLLER)

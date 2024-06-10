@@ -4,17 +4,56 @@ namespace  App\XHandler\Router\Routes;
 
 class Routes
 {
+    private array $PROTECTED_ROUTES;
+    private array $PROTECTED_FREE_ROUTES;
+    private array $FREE_ROUTES;
 
-    public static function ROUTES_THAT_DONT_NEED_LOGGIN()
+    public function __construct()
+    {
+        $this->PROTECTED_ROUTES         = self::ROUTES();
+        $this->PROTECTED_FREE_ROUTES    = self::ROUTES_THAT_DONT_NEED_PERMISSION();
+        $this->FREE_ROUTES              = self::ROUTES_THAT_DONT_NEED_LOGGIN();
+    }
+
+    // Getters
+    public function getProtectedRoutes(): array
+    {
+        return $this->PROTECTED_ROUTES;
+    }
+
+    public function getProtectedFreeRoutes(): array
+    {
+        return $this->PROTECTED_FREE_ROUTES;
+    }
+
+    public function getFreeRoutes(): array
+    {
+        return $this->FREE_ROUTES;
+    }
+
+    private function ROUTES_THAT_DONT_NEED_LOGGIN()
     {
         return [
             "/" => "",
-            "/login" => "login"
+            "/login" => "login",
+            "/page-not-found" => "PageNotFound"
         ];
     }
 
+    private function ROUTES_THAT_DONT_NEED_PERMISSION()
+    {
+        return [
+            "/" => "",
+            "/login" => "login",
+            "/home" => "home",
+            "/perfil" => "perfil",
+            "/administrativo/almoxarifado" => "administrativo",
+            "/login/recoveraccess" => "login",
+            "/login/firstaccess" => "login"
+        ];
+    }
 
-    public static function ROUTES() // Adicionar um @ a mais se possivel, ou um "Permissao_ID" => "1"
+    private function ROUTES()
     {
         return [
             "/page-not-found" => [
@@ -59,6 +98,15 @@ class Routes
                 ],
                 "POST" => [
                     "Controller" => "Administrativo@post",
+                ],
+            ],
+    
+            "/administrativo/almoxarifado" => [
+                "GET" => [
+                    "Controller" => "Administrativo/Almoxarifado@get",
+                ],
+                "POST" => [
+                    "Controller" => "Administrativo/Almoxarifado@post",
                 ],
             ],
     ];

@@ -6,6 +6,12 @@ use App\Model\Administrativo\Administrativo as AdministrativoModel;
 
 class Administrativo
 {
+
+    public function __construct()
+    {
+        
+    }
+
     public static function pode_Visualizar_Administrativo()
     {
         // Implementação da função GET

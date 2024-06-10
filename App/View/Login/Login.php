@@ -63,7 +63,6 @@
     </div>
   </div>
 </body>
-<script type="text/javascript" src="Public/Js/Login/PanelMove.js"></script>
 <script type="text/javascript" src="Public/Js/Login/Fetch_Login.js"></script>
 </html>
 
